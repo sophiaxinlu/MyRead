@@ -3,7 +3,7 @@
 Introductions: 
 A bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read. The project is using React.
 
-
+## TL;DR
 Functionality:
 In this application, the main page displays a list of "shelves" (i.e. categories), each of which contains a number of books. The three shelves are:
 
