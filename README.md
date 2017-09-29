@@ -22,6 +22,6 @@ User can also click on the book cover to read detail infortion for that book.
 
 
 ## Start the project:
-**start a terminal and cd into MyReads folder
-**run npm install
-**run npm start
+*start a terminal and cd into MyReads folder
+*run npm install
+*run npm start
