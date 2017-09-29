@@ -3,7 +3,7 @@
 Introductions: 
 A bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read. The project is using React.
 
-## Functionality:
+### Functionality:
 *In this application, the main page displays a list of "shelves" (i.e. categories), each of which contains a number of books. *The three shelves are:
 
 *Currently Reading
@@ -21,7 +21,10 @@ User can also click on the book cover to read detail infortion for that book.
 
 
 
-## Start the project:
-*start a terminal and cd into MyReads folder
-*run npm install
-*run npm start
+
+### Start the project:
+```
+start a terminal and cd into MyReads folder
+run npm install
+run npm start
+```
