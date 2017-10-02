@@ -1,4 +1,4 @@
-# MyReads
+# MyReads React app
 
 
 ### Introductions: 
