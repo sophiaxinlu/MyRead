@@ -3,6 +3,18 @@ import PropTypes from 'prop-types'
 
 
 class Books extends Component {
+    static propTypes = {
+        id: PropTypes.string,
+        title: PropTypes.string,
+        authors: PropTypes.array,
+        onUpdateShelf: PropTypes.func.isRequired
+    }
+
+    static  defaultProps = {
+        authors: [],
+        imageLinks: { smallThumbnail: ''},
+        shelf: 'none'
+    }
 
     render() {
         const {
@@ -13,14 +25,6 @@ class Books extends Component {
             onUpdateShelf,
             shelf
         } = this.props
-
-
-        const shelvesOptions = [
-            { value: 'currentlyReading', text: 'Currently Reading' },
-            { value: 'wantToRead', text: 'Want to Read' },
-            { value: 'read', text: 'Read' },
-            { value: 'none', text: 'None' }
-        ]
 
         return (
             <li key={id} className='book'>

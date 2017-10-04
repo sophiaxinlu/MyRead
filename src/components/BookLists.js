@@ -5,6 +5,11 @@ import Book from './Book'
 
 class BookLists extends Component {
 
+    static propTypes = {
+        books: PropTypes.array,
+        onUpdateShelf: PropTypes.func.isRequired
+    }
+
     render() {
         const { books, onUpdateShelf} = this.props
 

@@ -7,39 +7,42 @@ import sortBy from 'sort-by'
 
 
 class SearchBooks extends Component {
+    static propTypes = {
+        books: PropTypes.array,
+        onUpdateShelf: PropTypes.func.isRequired
+    }
+
     state = {
         query: '',
-        books: []
+        foundBooks: [],
+        error: 'Find your books by typing book and author in the input box.'
     }
 
     search = (query) => {
-        this.setState({query: query.trim() })
-        BooksAPI.search(query.trim(), 20).then( (books) =>{
-            if(!books || books.error){
-                this.setState({books: []})
-            } else{
-                books.sort(sortBy('title'))
-                this.setShelf(books)
-                this.setState({books: books})
-            }
-        })
+        this.setState({query: query.trim(), foundBooks: []})
+
+        if(!query) {
+            this.setState({ foundBooks: [], error: 'Find your books by typing book and author in the input box.' });
+        } else {
+            BooksAPI.search(query.trim(), 20).then( (foundBooks) =>{
+                if(!foundBooks || foundBooks.error || foundBooks.length < 1){
+                    this.setState({foundBooks: [], error: 'No books found.'})
+                } else{
+                    foundBooks.sort(sortBy('title'))
+                    this.setState({foundBooks, error: ''})
+                }
+            })
+        }
     }
 
-    setShelf = (results) => {
-        for (let result of results){
-            for (let book of this.props.books)
-                if (result.id === book.id) {
-                    result.shelf = book.shelf
-                } else {
-                    result.shelf = 'none'
-                }
-        }
-
+    setShelf = (categorizedBooks, noncategorizedBooks) => {
+        const shelfObj = categorizedBooks.reduce((accumulat, book) => ({ ...accumulat, [book.id]: book.shelf }), {});
+        return noncategorizedBooks.map(book => ({ ...book, shelf: shelfObj[book.id] }));
     }
 
     render() {
-        const {query, books} = this.state
-        const {onUpdateShelf} = this.props
+        const {query, foundBooks, error} = this.state
+        const {books, onUpdateShelf} = this.props
 
         return (
             <div className="search-books">
@@ -50,23 +53,17 @@ class SearchBooks extends Component {
                                placeholder="Search by title or author"
                                value = {query}
                                onChange={(event) => this.search(event.target.value)}
-
                         />
                     </div>
                 </div>
-                {
-                    query && (
-                        <div className="search-books-results">
-                            {
-                                (books.length > 1 ) ?  (
-                                    <BookLists books={books} onUpdateShelf={onUpdateShelf} />
-                                ) : (
-                                    <div>No books found.</div>
-                                )
-                            }
-                        </div>
-                    )
-                }
+                <div className="search-books-results">
+                    {
+                        (error !== '') && (
+                            <div>{error}</div>
+                        )
+                    }
+                    <BookLists books={this.setShelf(books, foundBooks)} onUpdateShelf={onUpdateShelf} />
+                </div>
             </div>
         )
     }
