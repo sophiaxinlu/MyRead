@@ -24,9 +24,9 @@ User can also click on the book cover to read detail infortion for that book.
 
 
 ### Screenshots:
-![Alt text](https://user-images.githubusercontent.com/1784187/31594968-384333b4-b1ed-11e7-8694-7bf3614b8d89.png "Find books")
+![Alt text](https://user-images.githubusercontent.com/1784187/31619615-ead8435a-b249-11e7-9393-1dcc829946f7.png "Find books")
 
-![Alt text](https://user-images.githubusercontent.com/1784187/31594967-382a70d6-b1ed-11e7-80c6-a115e9627e6f.png "Book categories")
+![Alt text](https://user-images.githubusercontent.com/1784187/31619614-eab13fa8-b249-11e7-8649-fa53cb5a9a84.png "Book categories")
 
 
 ### Start the project:
