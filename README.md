@@ -23,6 +23,11 @@ The main page also has a link to /search, a search page that allows user to find
 User can also click on the book cover to read detail infortion for that book.
 
 
+### Screenshots:
+![Alt text](https://user-images.githubusercontent.com/1784187/31594968-384333b4-b1ed-11e7-8694-7bf3614b8d89.png "Find books")
+
+![Alt text](https://user-images.githubusercontent.com/1784187/31594967-382a70d6-b1ed-11e7-80c6-a115e9627e6f.png "Book categories")
+
 
 ### Start the project:
 * start a terminal and cd into MyReads folder
